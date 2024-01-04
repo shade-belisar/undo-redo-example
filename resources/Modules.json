@@ -1,0 +1,82 @@
+[{
+  "id": "workflowSendMail",
+  "category": "Basismodule",
+  "delegate": "${workflowSendMail}",
+  "name": "E-Mail verschicken",
+  "description": "E-Mail verschicken.\\n\\n\\nEs werden folgende Fehler geworfen, die mit einem Boundary Event abgefangen werden können:\\n\\nSMTP_ERROR: Fehler beim versenden der E-Mail",
+  "triggerable": false,
+  "fields": [
+    {
+      "id": "to",
+      "type": "text",
+      "name": "To",
+      "description": "Empfaenger E-Mail Addresse. Feld darf nicht leer sein.",
+      "required": true,
+      "default": ""
+    },
+    {
+      "id": "from",
+      "type": "text",
+      "name": "From",
+      "description": "Absender E-Mail Addresse. Feld darf nicht leer sein.",
+      "required": true,
+      "default": ""
+    },
+    {
+      "id": "subject",
+      "type": "text",
+      "name": "Subject",
+      "description": "E-Mail Titel. Feld darf nicht leer sein.",
+      "required": true,
+      "default": ""
+    },
+    {
+      "id": "cc",
+      "type": "text",
+      "name": "Cc",
+      "description": "Copy E-Mail Addressen.",
+      "required": false,
+      "default": ""
+    },
+    {
+      "id": "bcc",
+      "type": "text",
+      "name": "Bcc",
+      "description": "Blind copy E-Mail Addressen.",
+      "required": false,
+      "default": ""
+    },
+    {
+      "id": "html",
+      "type": "text",
+      "name": "Html",
+      "description": "E-Mail Body als Html. Feld darf nicht leer sein.",
+      "required": true,
+      "default": ""
+    },
+    {
+      "id": "attachmentName",
+      "type": "text",
+      "name": "Attachment Dateiname",
+      "description": "Attachment Dateiname. Falls nicht gesetzt wird kein Attachment angehangen.",
+      "required": false,
+      "default": ""
+    },
+    {
+      "id": "attachmentMimeType",
+      "type": "text",
+      "name": "Attachment MimeType",
+      "description": "Attachment MimeType. Falls nicht gesetzt wird der MimeType auf text/plain gesetzt.",
+      "required": false,
+      "default": "text/plain"
+    },
+    {
+      "id": "attachmentContent",
+      "type": "text",
+      "name": "Attachment Inhalt",
+      "description": "Attachment Inhalt. Falls nicht gesetzt wird kein Attachment angehangen.",
+      "required": true,
+      "default": ""
+    }
+  ]
+}]

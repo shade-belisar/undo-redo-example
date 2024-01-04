@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="utf-8"/>
+    <title>bpmn-js-properties-panel extension demo</title>
+
+    <link href="assets/bpmn-js/bpmn-js.css" rel="stylesheet"/>
+    <link href="assets/bpmn-js/diagram-js.css" rel="stylesheet"/>
+    <link href="assets/bpmn-js/bpmn-embedded.css" rel="stylesheet"/>
+    <link href="assets/bpmn-js-properties-panel/properties-panel.css" rel="stylesheet"/>
+</head>
+<body>
+<div class="content" id="js-drop-zone" style="display: none">
+
+    <div class="message error">
+        <div class="note">
+            <p>Ooops, we could not display the BPMN 2.0 diagram.</p>
+
+            <div class="details">
+                <span>cause of the problem</span>
+                <pre></pre>
+            </div>
+        </div>
+    </div>
+
+    <div class="canvas" id="js-canvas"></div>
+    <div id="js-properties-panel"></div>
+</div>
+
+<script src="index.js"></script>
+
+</body>
+</html>

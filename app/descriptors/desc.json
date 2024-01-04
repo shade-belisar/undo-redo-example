@@ -1,0 +1,183 @@
+{
+  "name": "Async",
+  "prefix": "activiti",
+  "uri": "http://activiti.org/bpmn",
+  "xml": {
+    "tagAlias": "lowerCase"
+  },
+  "associations": [],
+  "types": [
+    {
+      "name": "ExecutionListener",
+      "superClass": [
+        "Element"
+      ],
+      "meta": {
+        "allowedIn": [
+          "bpmn:Task",
+          "bpmn:ServiceTask",
+          "bpmn:UserTask",
+          "bpmn:BusinessRuleTask",
+          "bpmn:ScriptTask",
+          "bpmn:ReceiveTask",
+          "bpmn:ManualTask",
+          "bpmn:ExclusiveGateway",
+          "bpmn:SequenceFlow",
+          "bpmn:ParallelGateway",
+          "bpmn:InclusiveGateway",
+          "bpmn:EventBasedGateway",
+          "bpmn:StartEvent",
+          "bpmn:IntermediateCatchEvent",
+          "bpmn:IntermediateThrowEvent",
+          "bpmn:EndEvent",
+          "bpmn:BoundaryEvent",
+          "bpmn:CallActivity",
+          "bpmn:SubProcess",
+          "bpmn:Process"
+        ]
+      },
+      "properties": [
+        {
+          "name": "expression",
+          "isAttr": true,
+          "type": "String"
+        },
+        {
+          "name": "class",
+          "isAttr": true,
+          "type": "String"
+        },
+        {
+          "name": "delegateExpression",
+          "isAttr": true,
+          "type": "String"
+        },
+        {
+          "name": "event",
+          "isAttr": true,
+          "type": "String"
+        },
+        {
+          "name": "script",
+          "type": "Script"
+        },
+        {
+          "name": "fields",
+          "type": "Field",
+          "isMany": true
+        }
+      ]
+    },
+    {
+      "name": "Async",
+      "extends": [
+        "bpmn:EndEvent",
+        "bpmn:ServiceTask",
+        "bpmn:ReceiveTask"
+      ],
+      "properties": [
+        {
+          "name": "async",
+          "isAttr": true,
+          "type": "bool"
+        },
+        {
+          "name": "triggerable",
+          "isAttr": true,
+          "type": "bool"
+        }
+      ]
+    },
+    {
+      "name": "Delegate Expression",
+      "extends": [
+        "bpmn:ServiceTask"
+      ],
+      "properties": [
+        {
+          "name": "delegateExpression",
+          "isAttr": true,
+          "type": "String"
+        }
+      ]
+    },
+    {
+      "name": "Group Config",
+      "extends": [
+        "bpmn:Group"
+      ],
+      "properties": [
+        {
+          "name": "shape",
+          "isAttr": true,
+          "type": "String"
+        },
+        {
+          "name": "dashes",
+          "isAttr": true,
+          "type": "String"
+        }
+      ]
+    },
+    {
+      "name": "Field",
+      "superClass": [
+        "Element"
+      ],
+      "properties": [
+        {
+          "name": "name",
+          "isAttr": true,
+          "type": "String"
+        },
+        {
+          "name": "expression",
+          "isMany": false,
+          "type": "activiti:Expression"
+        },
+        {
+          "name": "string",
+          "isMany": false,
+          "type": "activiti:String"
+        }
+      ]
+    },
+    {
+      "name": "Expression",
+      "properties": [
+        {
+          "name": "text",
+          "isBody": true,
+          "type": "String"
+        }
+      ]
+    },
+    {
+      "name": "String",
+      "properties": [
+        {
+          "name": "text",
+          "isBody": true,
+          "type": "String"
+        }
+      ]
+    },
+    {
+      "name": "Collectable",
+      "isAbstract": true,
+      "extends": [ "bpmn:MultiInstanceLoopCharacteristics" ],
+      "properties": [
+        {
+          "name": "collection",
+          "isAttr": true,
+          "type": "String"
+        },
+        {
+          "name": "elementVariable",
+          "isAttr": true,
+          "type": "String"
+        }
+      ]
+    }
+  ]
+}
