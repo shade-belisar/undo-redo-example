@@ -51,7 +51,7 @@ export const setExpression = (bpmnFactory, businessObject, field, value) => {
         }
     }
 
-    let extensionElements = businessObject.extensionElements;
+    let extensionElements = getExtensionElements(bpmnFactory, businessObject);
     if (!extensionElements) {
         extensionElements = bpmnFactory.create("bpmn:ExtensionElements");
     }
@@ -69,7 +69,7 @@ export const setExpression = (bpmnFactory, businessObject, field, value) => {
 }
 
 export const createListener = (businessObject, bpmnFactory) => {
-    let extensionElements = businessObject.extensionElements;
+    let extensionElements = getExtensionElements(bpmnFactory, businessObject);
     if (!extensionElements) {
         extensionElements = bpmnFactory.create("bpmn:ExtensionElements");
     }
@@ -82,9 +82,16 @@ export const createListener = (businessObject, bpmnFactory) => {
     }
     return {extensionElements, listener}
 }
+
+export const getExtensionElements = (bpmnFactory, businessObject) => {
+    const extensionElements = businessObject.extensionElements;
+    const preexistingValues = extensionElements ? extensionElements.get('values') : [];
+    return bpmnFactory.create('bpmn:ExtensionElements', { values: preexistingValues });
+}
+
 export const updateElement = (element, modeling, extensionElements) => {
     element = element.labelTarget || element;
     console.log("Updating " + JSON.stringify(element))
     console.log(JSON.stringify(extensionElements))
-    return modeling.updateProperties(element, {extensionElements});
+    return modeling.updateProperties(element, { extensionElements });
 }
