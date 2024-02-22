@@ -86,7 +86,7 @@ export const createListener = (businessObject, bpmnFactory) => {
 export const getExtensionElements = (bpmnFactory, businessObject) => {
     const extensionElements = businessObject.extensionElements;
     const preexistingValues = extensionElements ? extensionElements.get('values') : [];
-    return bpmnFactory.create('bpmn:ExtensionElements', { values: preexistingValues });
+    return bpmnFactory.create('bpmn:ExtensionElements', { values: preexistingValues.slice() });
 }
 
 export const updateElement = (element, modeling, extensionElements) => {
