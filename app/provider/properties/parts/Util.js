@@ -92,7 +92,7 @@ export const getExtensionElements = (bpmnFactory, businessObject) => {
           )
       }
     ))
-    return bpmnFactory.create('bpmn:ExtensionElements', { values: preexistingValues });
+    return bpmnFactory.create('bpmn:ExtensionElements', { values: [ ...preexistingValues ] });
 }
 
 export const updateElement = (element, modeling, extensionElements) => {
